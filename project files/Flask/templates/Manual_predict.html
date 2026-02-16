@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Motor Temperature Prediction</title>
+    <style>
+        body { font-family: Arial; }
+        .box {
+            width: 50%;
+            margin: auto;
+            margin-top: 40px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: black;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box">
+    <h2>Electric Motor Temperature Prediction</h2>
+
+    <form action="/y_predict" method="post">
+        <input type="text" name="ambient" placeholder="Ambient Temperature" required>
+        <input type="text" name="coolant" placeholder="Coolant Temperature" required>
+        <input type="text" name="u_d" placeholder="Voltage d-component" required>
+        <input type="text" name="u_q" placeholder="Voltage q-component" required>
+        <input type="text" name="motor_speed" placeholder="Motor Speed" required>
+        <input type="text" name="i_d" placeholder="Current d-component" required>
+        <input type="text" name="i_q" placeholder="Current q-component" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</div>
+</body>
+</html>
